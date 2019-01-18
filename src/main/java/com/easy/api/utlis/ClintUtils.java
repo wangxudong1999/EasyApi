@@ -43,8 +43,11 @@ public class ClintUtils {
             HttpPost httpPost = new HttpPost(environment+url);
             UrlEncodedFormEntity uefEntity =   new UrlEncodedFormEntity(list,"UTF-8");
             httpPost.setEntity(uefEntity);
+            //运行
             CloseableHttpResponse httpResponse =  httpClient.execute(httpPost);
+            //取参数
             HttpEntity entity = httpResponse.getEntity();
+            //转型
             String ResponseValue = EntityUtils.toString(entity);
             //httpClient.close();
             return ResponseValue;
