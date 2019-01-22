@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 /**
- * @ClassName dome02
+ * @ClassName dome03
  * @Date 2019/1/16 3:22 PM
  * @Author WangXuDong
  **/
@@ -19,12 +19,12 @@ public class dome03 extends eaysApi {
     JdbcUtil jdbcUtil = new JdbcUtil();
 
 
-    //增删改更新数据
+    //增删改  更新数据
     @Test()
     public void update () throws JSONException, IOException {
 
         String update ="update user_info set age=? where  phone='17640592255'";
-        jdbcUtil.getUtils(update, new Object[]{"28"});
+        jdbcUtil.getUtils(update, new Object[]{"35"});
 
 
     }

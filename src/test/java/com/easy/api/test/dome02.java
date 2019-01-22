@@ -25,7 +25,7 @@ public class dome02 extends eaysApi {
 
     private  String method= "post";
 
-    @Test
+    @Test()
     public void checkUid () throws JSONException, IOException {
 
         PropertiesUtils propertiesUtils = new PropertiesUtils("value.properties");
