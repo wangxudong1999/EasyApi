@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 
 import java.io.File;
@@ -21,24 +22,40 @@ import java.util.concurrent.TimeUnit;
  **/
 public class HelloSelenium {
 
-    public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","/Users/didi/Documents/workspace/EasyApi/src/main/resources/chromedriver");
+
+   public String filePath;
+
+
+    public String getPath() {
+
+        filePath = this.getClass().getClassLoader().getResource("chromedriver").getPath();
+
+        return filePath;
+
+    }
+
+
+
+    @Test
+    public void main() throws InterruptedException {
+
+        System.setProperty("webdriver.chrome.driver",this.getPath());
 
         WebDriver driver = new ChromeDriver();
 
         driver.get("http://www.baidu.com/");
 
-        String title = driver.getTitle();
-        System.out.println(title);
+//        String title = driver.getTitle();
+//        System.out.println(title);
 
 //        System.out.println("改变浏览器窗口大小");
 //        Borwser(driver);
 
-       System.out.println("浏览器前进后退");
-       BrowserGo(driver);
+//       System.out.println("浏览器前进后退");
+//       BrowserGo(driver);
 
-//        System.out.println("浏览器元素操作");
-//        BrowserOperation(driver);
+//         System.out.println("浏览器元素操作");
+//         BrowserOperation(driver);
 
 //        System.out.println("模拟鼠标操作");
 //        MouseOperation(driver);
@@ -55,17 +72,17 @@ public class HelloSelenium {
 //        System.out.println("定位一组元素");
 //        ElementsPositioning(driver);
 
-//        System.out.println("多表单切换");
-//        SwitchTable(driver);
+ //       System.out.println("多表单切换");
+ //       SwitchTable(driver);
 
-//        System.out.println("多窗口切换");
-//        WindowsSwitch(driver);
+ //       System.out.println("多窗口切换");
+ //       WindowsSwitch(driver);
 
-//        System.out.println("下拉框选择");
-//        SelectWindow(driver);
+ //       System.out.println("下拉框选择");
+ //      SelectWindow(driver);
 
-//        System.out.println("警告框处理");
-//        AlertDemo(driver);
+ //      System.out.println("警告框处理");
+ //       AlertDemo(driver);
 
 //        System.out.println("文件上传");
 //        FileUpload(driver);
@@ -73,8 +90,8 @@ public class HelloSelenium {
 //        System.out.println("浏览器Cookie操作");
 //        BorwserCookie(driver);
 
-//        System.out.println("执行JavaScript代码");
-//        JavaScript(driver);
+//          System.out.println("执行JavaScript代码");
+//          JavaScript(driver);
 
 //        System.out.println("获取窗口截图");
 //        ScreenShot(driver);
@@ -88,14 +105,18 @@ public class HelloSelenium {
         WebDriver driver1;
         driver1 = driver;
 
+        //最大化窗口
         driver1.manage().window().maximize();
+        //时间等待 毫秒
         Thread.sleep(2000);
 
 //        driver1.get("https://m.baidu.cn");
+        //设置宽高
         driver1.manage().window().setSize(new Dimension(1200,720));
+        //等待
         Thread.sleep(2000);
-
-   //     driver1.quit();
+        //退出驱动并关闭所有关联的窗口。
+        driver1.quit();
 
     }
 
